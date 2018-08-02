@@ -1,14 +1,26 @@
 # Flash Toolbox 刷机工具箱
 
-*Made by ytdttj , using C++.*
+`Copyright © 2018 CSG Studio Reserved.`<br>
+*Programmed in C++.*<br>
+*Project is started by [ytdttj](https://github.com/ytdttj).*<br>
 
-致力于简化刷机过程，让更多人享受刷机的乐趣
+## 为什么存在
 
-*Beta 1.0 and Beta 1.1 are tested by MarkFu.*
+CSG团队致力于简化刷机过程，让更多人享受刷机的乐趣
+
+## 必读部分！！！！
+
+*Beta 1.0 and Beta 1.1 are tested by [MarkkFFu](https://github.com/MarkkFFu).*
 
 启动器更换功能已在OPPO Find X上通过测试，理论上OPPO通用<br>
-暂时未支持其他机型／系统<br>
-如果您知道其他系统的启动器包名，可以发送至ytdttj@163.com，帮助我适配其他机型，谢谢啦～<br>
+CSG官方版本暂时未支持其他机型／系统<br>
+如果您知道其他系统的启动器包名，可以发送至csgstudio@outlook.com<br>
+帮助CSG团队适配其他机型，谢谢啦～<br>
+当然，您也可以下载我们提供的源代码，并对代码进行修改补充（如果能够提交给我们就更好啦！）<br>
+***但请务必遵守GNU GPL v3.0开源协议，切勿删除代码内的版权信息，您可以将之注释化***<br>
+`我们并不鼓励用我们的代码构建应用并用之于商业用途，虽然这符合GNU GPL v3.0`
 
-如果你喜欢我的作品，可以通过这个二维码来打赏我哦，一分也是爱～
-[支付宝点这里](https://github.com/CSG-Studio/Flash-Toolbox/blob/master/1533155180207.jpg)
+## 写在最后(Written by ytdttj)
+尽管我加入了CSG团队，但我还是会抽空更新维护个人版本<br>
+个人版本点击[这里](https://github.com/ytdttj/Flash-Toolbox/)<br>
+感谢支持～
