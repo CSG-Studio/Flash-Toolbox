@@ -1,6 +1,6 @@
 # Flash Toolbox 刷机工具箱
 
-`Copyright © 2018 CSG Studio Reserved.`<br>
+`Copyright © 2019 CSG Studio Reserved.`<br>
 *Programmed in C++.*<br>
 *Project is started by [ytdttj](https://github.com/ytdttj).*<br>
 
@@ -22,8 +22,3 @@ __ColorOS 5在A21版本后就封堵了ADB禁用系统桌面的漏洞，该方法
 当然，您也可以下载我们提供的源代码，并对代码进行修改补充（如果能够提交给我们就更好啦！）<br>
 ***但请务必遵守GNU GPL v3.0开源协议，切勿删除代码内的版权信息，您可以将之注释化***<br>
 `我们并不鼓励用我们的代码构建应用并用之于商业用途，虽然这符合GNU GPL v3.0`
-
-## 写在最后(Written by ytdttj)
-尽管我加入了CSG团队，但我还是会抽空更新维护个人版本<br>
-个人版本点击[这里](https://github.com/ytdttj/Flash-Toolbox/)<br>
-感谢支持～
