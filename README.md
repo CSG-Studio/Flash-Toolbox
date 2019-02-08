@@ -11,6 +11,7 @@ CSG团队致力于简化刷机过程，让更多人享受刷机的乐趣
 ## 必读部分！！！！
 
 *Beta 1.0 and Beta 1.1 are tested by [MarkkFFu](https://github.com/MarkkFFu).*
+***原Dev-C++编译器已更改为Code::Block，因此dev文件不再更新，望周知！！***
 
 启动器更换功能已在OPPO Find X上通过测试，理论上OPPO通用<br>
 CSG官方版本暂时未支持其他机型／系统<br>
