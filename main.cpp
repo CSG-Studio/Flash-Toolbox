@@ -11,6 +11,9 @@ void fsb();
 void adb1(void);
 void adb2(void);
 void adb3(void);
+void adb4(void);
+void adb5(void);
+void adb6(void);
 
 void fsb1(void);
 void fsb2(void);
@@ -19,7 +22,7 @@ void fsb3(void);
 int main()
 {
 	//
-	cout<<"Copyright 2018 CSG Studio Reserved.\n";
+	cout<<"Copyright 2019 CSG Studio Reserved.\n";
 	system("title CSG刷机工具箱");
 	cout<<"欢迎使用CSG团队出品的刷机工具箱\n----------------------------\n使用前请确认你的手机已开启ADB调试,或已进入fastboot模式\n并且已连接电脑!!(划重点)\n----------------------------\n";
 	system("pause");
@@ -36,7 +39,7 @@ int main()
 	else
 	{
 		cout<<"这不是一个选项，请退出重新开始噢~\n";
-	} 
+	}
 	return 0;
 }
 
@@ -48,7 +51,7 @@ void adb()
 	system("adb devices");
 	cout<<"\n------------------\n";
 	system("pause");
-	cout<<"\n请选择功能：\n1.解锁system（去除boot校验）\n2.安装APP\n3.更换系统桌面（目前仅适配OPPO机型，A21版本以后可能已失效）\n";
+	cout<<"\n请选择功能：\n1.解锁system（去除boot校验）\n2.安装APP\n3.冰箱等类似软件激活\n4.黑阈激活\n5.叹号杀手（原生及类原生）\n6.Sideload（需要在TWRP中选择ADB Sideload）\n";
 	cin>>tmp;
 	switch(tmp)
 	{
@@ -56,6 +59,9 @@ void adb()
 		case 1 : adb1();break;
 		case 2 : adb2();break;
 		case 3 : adb3();break;
+		case 4 : adb4();break;
+		case 5 : adb5();break;
+		case 6 : adb6();break;
 	}
 }
 
@@ -85,63 +91,86 @@ void adb2()//app
 	system("adb install -r app.apk");
 }
 
-void adb3()//更换系统桌面 
+void adb3()//jh
 {
 	//
 	system("cls");
-	cout<<"本功能目前仅适配OPPO，其他系统等待适配\n你也可以将你的系统的启动器包名发送至csgstudio@outlook.com\n\n原理是禁用系统启动器\n所以请事先安装好其他启动器，否则可能无法进入桌面！！\n\n";
-	cout<<"请选择你的系统版本：\n1.A21及以前    2.A21以后\n";
+	cout<<"请选择你要激活的软件：\n1.冰箱    2.空调狗\n3.小黑屋";
 	cin>>tmp;
-	if (tmp == 1)
-	{
-		//
-		cout<<"请选择：\n1.禁用OPPO Launcher\n2.恢复OPPO Launcher\n\n";
-		cin>>tmp;
-		if (tmp == 1)
-		{
-			cout<<"\n\n你选择了禁用OPPO Launcher，请再次确认你已经安装了其他启动器\n\n确认请按任意键\n";
-			system("pause>nul");
-			cout<<"\n开始执行adb命令，请稍后\n\n";
-			system("adb shell pm disable-user com.oppo.launcher");
-		}
-		if (tmp == 2)
-		{
-			cout<<"\n\n你选择了恢复OPPO Launcher，正在为你恢复\n";
-			system("adb shell pm enable com.oppo.launcher");
-		}
-	}
-	else
-	{
-		//
-		cout<<"A21之后版本无法直接通过ADB命令禁用系统桌面，现提供两种方法：\n1.激活冰箱    2.激活空调狗\n";
-		cin>>tmp;
-		if (tmp == 1)
-		{
-			system("cls");
-			cout<<"注意事项\n----------------------------\n";
-			cout<<"1.索尼手机去除手机SIM卡；小米用户请在开发者选项中关闭[MIUI优化]\n";
-			cout<<"2.进入手机[设置-账户]，删除*所有*账户，包括你的Google/小米/华为等系统账号（完成后可重新登录）\n";
-			cout<<"3.如果你之前设置过多用户或手机自带访客模式、应用双开等，也需要一并关闭或删除（完成后可重新打开）\n";
-			cout<<"\n完成上述步骤后请按任意键继续";
-			system("pause>nul");
-			cout<<"出现Success之类的字样就成功啦！\n";
-			system("adb shell dpm set-device-owner com.catchingnow.icebox/.receiver.DPMReceiver");
-			cout<<"\n如果失败，请仔细检查上述过程是否缺漏；\n解除冰箱权限：解冻所有应用，然后到冰箱设置里点击卸载，确认后即可解除";
-		}
-		if (tmp == 2)
-		{
-			//
-			system("cls");
-			cout<<"注意事项\n----------------------------\n";
-			cout<<"1.进入手机[设置-账户]，删除*所有*账户，包括你的Google/小米/华为等系统账号（完成后可重新登录）\n";
-			cout<<"2.如果你之前设置过多用户或手机自带访客模式、应用双开等，也需要一并关闭或删除（完成后可重新打开）\n";
-			cout<<"\n完成上述步骤后请按任意键继续";
-			system("pause>nul");
-			cout<<"出现Success之类的字样就成功啦！\n";
-			system("adb shell dpm set-device-owner me.yourbay.airfrozen/.main.core.mgmt.MDeviceAdminReceiver");
-			cout<<"\n如果失败，请仔细检查上述过程是否缺漏；\n解除空调狗权限：解冻所有应用，然后到空调狗设置里点击卸载，确认后即可解除";
-		}
-	}
+    if (tmp == 1)
+    {
+        system("cls");
+        cout<<"注意事项\n----------------------------\n";
+        cout<<"1.索尼手机去除手机SIM卡；小米用户请在开发者选项中关闭[MIUI优化]\n";
+        cout<<"2.进入手机[设置-账户]，删除*所有*账户，包括你的Google/小米/华为等系统账号（完成后可重新登录）\n";
+        cout<<"3.如果你之前设置过多用户或手机自带访客模式、应用双开等，也需要一并关闭或删除（完成后可重新打开）\n";
+        cout<<"\n完成上述步骤后请按任意键继续";
+        system("pause>nul");
+        cout<<"出现Success之类的字样就成功啦！\n";
+        system("adb shell dpm set-device-owner com.catchingnow.icebox/.receiver.DPMReceiver");
+        cout<<"\n如果失败，请仔细检查上述过程是否缺漏；\n解除冰箱权限：解冻所有应用，然后到冰箱设置里点击卸载，确认后即可解除";
+    }
+    if (tmp == 2)
+    {
+        //
+        system("cls");
+        cout<<"注意事项\n----------------------------\n";
+        cout<<"1.进入手机[设置-账户]，删除*所有*账户，包括你的Google/小米/华为等系统账号（完成后可重新登录）\n";
+        cout<<"2.如果你之前设置过多用户或手机自带访客模式、应用双开等，也需要一并关闭或删除（完成后可重新打开）\n";
+        cout<<"\n完成上述步骤后请按任意键继续";
+        system("pause>nul");
+        cout<<"出现Success之类的字样就成功啦！\n";
+        system("adb shell dpm set-device-owner me.yourbay.airfrozen/.main.core.mgmt.MDeviceAdminReceiver");
+        cout<<"\n如果失败，请仔细检查上述过程是否缺漏；\n解除空调狗权限：解冻所有应用，然后到空调狗设置里点击卸载，确认后即可解除";
+    }
+    if (tmp == 3)
+    {
+        //
+        system("cls");
+        cout<<"注意事项\n----------------------------\n";
+        cout<<"1.开启ADB调试，将手机连接至电脑\n";
+        cout<<"2.如果你的设备系统是Android 8.0（Oreo）及以上，请将手机的USB选项设备为”仅充电“，否则服务将在拔掉数据线之后自动停止\n";
+        cout<<"\n完成上述步骤后请按任意键继续";
+        system("pause>nul");
+        cout<<"出现Success之类的字样就成功啦！\n";
+        system("adb -d shell sh /sdcard/Android/data/web1n.stopapp/files/demon.sh");
+        cout<<"\n如果失败，请仔细检查上述过程是否缺漏；解除小黑屋权限：解冻所有应用，然后到小黑屋设置里点击卸载，确认后即可解除";
+    }
+}
+
+void adb4()//hy
+{
+	//
+	system("cls");
+	cout<<"请在开发者选型中打开USB调试功能，USB选项选择“仅充电”\n";
+	cout<<"Android 8及以上只要关闭USB调试或更改USB选项，黑阈就会失效\n";
+	cout<<"如果拔掉数据线之后黑阈就失效，请尝试其他USB选项\n准备好后请按任意键开始激活\n";
+	system("pause>nul");
+	system("adb -d shell sh /data/data/me.piebridge.brevent/brevent.sh");
+	cout<<"\n如果失败，请仔细检查上述过程是否缺漏；\n解除黑阈权限：解冻所有应用，然后到黑阈设置里点击卸载，确认后即可解除";
+}
+
+void adb5()
+{
+	//地址connect.rom.miui.com/generate_204
+	system("cls");
+	cout<<"请打开USB调试，并连接至电脑\n准备好后请按任意键开始\n";
+	system("pause>nul");
+	system("adb shell settings delete global captive_portal_mode");
+	system("adb shell settings put global captive_portal_mode 1");
+	system("adb shell settings delete global captive_portal_https_url");
+	system("adb shell settings delete global captive_portal_http_url");
+	system("adb shell settings put global captive_portal_http_url http://connect.rom.miui.com/generate_204");
+	system("adb shell settings put global captive_portal_https_url https://connect.rom.miui.com/generate_204");
+}
+
+void adb6()
+{
+    //
+    system("cls");
+    cout<<"请将文件改名为sideload.zip放在同文件夹下\n并手机进入TWRP，在“高级”选项中选择“ADB Sideload”选项，并滑动滑块，准备好后请按任意键\n";
+    system("pause>nul");
+    system("adb sideload sideload.zip");
 }
 
 void fsb()//
